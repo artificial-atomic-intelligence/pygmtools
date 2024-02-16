@@ -243,7 +243,7 @@ def rrwm(K: np.ndarray, n1: np.ndarray, n2: np.ndarray, n1max, n2max, x0: np.nda
     # rescale the values in K
     d = K.sum(axis=2, keepdims=True)
     dmax = d.max(axis=1, keepdims=True)
-    K = K / (dmax + d.min() + 1e-5) # d.min() * 1e-5 for numerical reasons
+    K = K / (dmax + d.min() * 1e-5) # d.min() * 1e-5 for numerical reasons
     v = v0
     for i in range(max_iter):
         # random walk
